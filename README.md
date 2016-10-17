@@ -1,4 +1,10 @@
-aula_11
+Turma 2
 =======
 
-A Symfony project created on October 17, 2016, 8:33 pm.
+Objetivo
+--------
+
+Este repositório foi criado para mostrar o Git e mostrar o Symfony
+
+
+Um Projeto Symfony criado em 17 de Outubro de 2016, 20:33 - Aula 11.
