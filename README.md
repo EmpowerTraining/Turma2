@@ -1,4 +1,4 @@
-Turma 2 - Atualizado
+Turma 2 - Quem merda é essa cara?
 =======
 
 Objetivo
