@@ -1,4 +1,4 @@
-Turma 2 - Quem merda é essa cara?
+Turma 2 - Aprendendo Symfony com GitHub
 =======
 
 Objetivo
