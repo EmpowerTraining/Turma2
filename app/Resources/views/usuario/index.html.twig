@@ -19,7 +19,7 @@
                 <td><a href="{{ path('usuario_show', { 'id': usuario.id }) }}">{{ usuario.id }}</a></td>
                 <td>{{ usuario.nome }}</td>
                 <td>{{ usuario.email }}</td>
-                <td>{% if usuario.criacao %}{{ usuario.criacao|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if usuario.criacao %}{{ usuario.criacao|date('d/m/Y à\\s H:i:s') }}{% endif %}</td>
                 <td>
                     <ul>
                         <li>
