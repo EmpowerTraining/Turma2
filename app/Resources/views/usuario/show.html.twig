@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Usuario</h1>
+    <h1>Dados do Usuário</h1>
 
     <table>
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>Matrícula</th>
                 <td>{{ usuario.id }}</td>
             </tr>
             <tr>
@@ -14,30 +14,26 @@
                 <td>{{ usuario.nome }}</td>
             </tr>
             <tr>
-                <th>Email</th>
+                <th>E-mail</th>
                 <td>{{ usuario.email }}</td>
             </tr>
             <tr>
-                <th>Senha</th>
-                <td>{{ usuario.senha }}</td>
-            </tr>
-            <tr>
-                <th>Criacao</th>
-                <td>{% if usuario.criacao %}{{ usuario.criacao|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <th>Cadastrado em:</th>
+                <td>{% if usuario.criacao %}{{ usuario.criacao|date('d/m/Y à\\s H:i:s') }}{% endif %}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('usuario_index') }}">Back to the list</a>
+            <a href="{{ path('usuario_index') }}">Voltar a lista de usuários</a>
         </li>
         <li>
-            <a href="{{ path('usuario_edit', { 'id': usuario.id }) }}">Edit</a>
+            <a href="{{ path('usuario_edit', { 'id': usuario.id }) }}">Editar</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Apagar">
             {{ form_end(delete_form) }}
         </li>
     </ul>
