@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Nossos Membros | <a href="{{ path('membro_new') }}">Cadastrar novo membro</a></h1>
+
+    <table border="1" width="100%">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Data de nascimento</th>
+                <th>Sexo</th>
+                <th>Telefone</th>
+                <th>Cadastrado em:</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for membro in membros %}
+            <tr>
+                <td><a href="{{ path('membro_show', { 'id': membro.id }) }}">{{ membro.id }}</a></td>
+                <td>{{ membro.nome }}</td>
+                <td>{{ membro.email }}</td>
+                <td>{% if membro.dataNascimento %}{{ membro.dataNascimento|date('d/m/Y') }}{% endif %}</td>
+                <td>{{ membro.sexo }}</td>
+                <td>{{ membro.telefone }}</td>
+                <td>{% if membro.dataRegistro %}{{ membro.dataRegistro|date('d/m/Y à\\s H:i') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('membro_show', { 'id': membro.id }) }}">Visualizar</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('membro_edit', { 'id': membro.id }) }}">Editar</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('membro_delete', { 'id': membro.id }) }}">Deletar</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <hr>
+    <table border="1" width="100%">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for usuario in usuarios %}
+            <tr>
+                <td><a href="{{ path('usuario_show', { 'id': usuario.id }) }}">{{ usuario.id }}</a></td>
+                <td>{{ usuario.nome }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('usuario_show', { 'id': usuario.id }) }}">Visualizar</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('usuario_edit', { 'id': usuario.id }) }}">Editar</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
