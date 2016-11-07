@@ -1,3 +1,7 @@
+app_tarefa:
+    resource: "@AppBundle/Controller/TarefaController.php"
+    type:     annotation
+
 exemplo:
     resource: "@ExemploBundle/Controller/"
     type:     annotation

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Criação de Tarefa</h1>
+
+    <form action="{{ path('tarefa_new') }}" method="post">
+        <input type="text" name="descricao" placeholder="Descreva a tarefa...">
+        <select name="demandante">
+            <option>Demandante....</option>
+            {% for usuario in usuarios %}
+                <option value="{{ usuario.id }}">{{ usuario.nome }}</option>
+            {% endfor %}
+        </select>
+        <select name="responsavel">
+            <option>Responsável...</option>
+            {% for usuario in usuarios %}
+                <option value="{{ usuario.id }}">{{ usuario.nome }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Cadastrar">
+    </form>
+
+    <ul>
+        <li>
+            <a href="{{ path('tarefa_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

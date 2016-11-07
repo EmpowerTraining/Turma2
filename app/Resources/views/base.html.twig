@@ -7,6 +7,11 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        <ul>
+            <li><a href="{{ path('usuario_index') }}">Usuários</a></li>
+            <li><a href="{{ path('tarefa_index') }}">Tarefas</a></li>
+            <li><a href="{{ path('curso_index') }}">Cursos</a></li>
+        </ul>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tarefa list</h1>
+
+    <table border="1" width="100%">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descrição</th>
+                <th>Status</th>
+                <th>Demandante</th>
+                <th>Responsável</th>
+                <th>Data Fim</th>
+                <th>Data Cadastro</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tarefa in tarefas %}
+            <tr>
+                <td><a href="{{ path('tarefa_show', { 'id': tarefa.id }) }}">{{ tarefa.id }}</a></td>
+                <td>{{ tarefa.descricao }}</td>
+                <td>{{ tarefa.status.id }} - {{ tarefa.status.status }}</td>
+                <td>{{ tarefa.demandante.nome }} ({{ tarefa.demandante.email }})</td>
+                <td>{{ tarefa.responsavel.nome }} ({{ tarefa.responsavel.email }})</td>
+                <td>{% if tarefa.dataFim %}{{ tarefa.dataFim|date('d/m/Y') }}{% endif %}</td>
+                <td>{% if tarefa.dataCadastro %}{{ tarefa.dataCadastro|date('d/m/Y') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('tarefa_show', { 'id': tarefa.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('tarefa_edit', { 'id': tarefa.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tarefa_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
