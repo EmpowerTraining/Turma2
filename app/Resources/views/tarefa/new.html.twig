@@ -3,26 +3,33 @@
 {% block body %}
     <h1>Criação de Tarefa</h1>
 
-    <form action="{{ path('tarefa_new') }}" method="post">
-        <input type="text" name="descricao" placeholder="Descreva a tarefa...">
-        <select name="demandante">
-            <option>Demandante....</option>
-            {% for usuario in usuarios %}
-                <option value="{{ usuario.id }}">{{ usuario.nome }}</option>
-            {% endfor %}
-        </select>
-        <select name="responsavel">
-            <option>Responsável...</option>
-            {% for usuario in usuarios %}
-                <option value="{{ usuario.id }}">{{ usuario.nome }}</option>
-            {% endfor %}
-        </select>
-        <input type="submit" value="Cadastrar">
+    <form action="{{ path('tarefa_new') }}" method="post" class="form-inline">
+        <div class="form-group">
+            <label class="sr-only" for="exampleInputAmount">Tarefa:</label>
+            <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-check"></span></div>
+                <input type="text" name="descricao" placeholder="Descreva a tarefa..." class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <select name="demandante" class="form-control">
+                <option>Demandante....</option>
+                {% for usuario in usuarios %}
+                    <option value="{{ usuario.id }}">{{ usuario.nome }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <select name="responsavel" class="form-control">
+                <option>Responsável...</option>
+                {% for usuario in usuarios %}
+                    <option value="{{ usuario.id }}">{{ usuario.nome }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <input type="submit" value="Cadastrar" class="btn btn-primary">
+        <a href="{{ path('tarefa_index') }}" class="btn btn-warning">Voltar a Lista</a>
     </form>
 
-    <ul>
-        <li>
-            <a href="{{ path('tarefa_index') }}">Back to the list</a>
-        </li>
-    </ul>
+
 {% endblock %}

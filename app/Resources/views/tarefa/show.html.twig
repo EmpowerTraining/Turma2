@@ -10,26 +10,26 @@
                 <td>{{ tarefa.id }}</td>
             </tr>
             <tr>
-                <th>Descricao</th>
+                <th>Descrição</th>
                 <td>{{ tarefa.descricao }}</td>
             </tr>
             <tr>
-                <th>Datafim</th>
-                <td>{% if tarefa.dataFim %}{{ tarefa.dataFim|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <th>Data de Conclusão</th>
+                <td>{% if tarefa.dataFim %}{{ tarefa.dataFim|date('d/m/Y') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Datacadastro</th>
-                <td>{% if tarefa.dataCadastro %}{{ tarefa.dataCadastro|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <th>Tarefa Cadastrada em:</th>
+                <td>{% if tarefa.dataCadastro %}{{ tarefa.dataCadastro|date('d/m/Y') }}{% endif %}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('tarefa_index') }}">Back to the list</a>
+            <a href="{{ path('tarefa_index') }}">Voltar para a Listagem</a>
         </li>
         <li>
-            <a href="{{ path('tarefa_edit', { 'id': tarefa.id }) }}">Edit</a>
+            <a href="{{ path('tarefa_edit', { 'id': tarefa.id }) }}">Editar</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
